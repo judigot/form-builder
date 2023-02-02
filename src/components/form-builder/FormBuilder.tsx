@@ -2,20 +2,38 @@ import React from "react";
 
 import Text from "./fields/Text";
 import Number from "./fields/Number";
+import Boolean from "./fields/Boolean";
+import Dropdown from "./fields/Dropdown";
 
 interface Props {
-  fields: TextField[];
+  form: MasterField[];
 }
 
 const FormBuilder: React.FC<Props> = (props: Props) => {
-  const [fields, setFields] = React.useState<TextField[]>(props.fields);
+  // const [form, setForm] = React.useState(props.form);
+
+  const form: MasterField[] = props.form;
 
   return (
     <>
-      {fields &&
-        fields.map((field: TextField) => {
-          if (field.type === "text") return <Text />;
-          if (field.type === "number") return <Number />;
+      {form &&
+        form.map((field: MasterField, i: number) => {
+          switch (field.type) {
+            case "text":
+              return <Text key={i} {...field} />;
+
+            case "number":
+              return <Number key={i} {...field} />;
+
+            case "boolean":
+              return <Boolean key={i} {...field} />;
+
+            case "dropdown":
+              return <Dropdown key={i} {...field} />;
+
+            default:
+              break;
+          }
         })}
     </>
   );

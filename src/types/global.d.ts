@@ -2,34 +2,40 @@ declare global {
   interface TextField {
     title: string;
     type: string;
-    maxLength?: boolean;
+    maxLength?: number;
   }
 
   interface NumberField {
     title: string;
     type: string;
-    minVal?: number;
-    maxVal?: number;
+    min?: number;
+    max?: number;
   }
 
   interface BooleanField {
     title: string;
     type: string;
-    default: boolean;
-    // default?: string;
+    isChecked?: boolean;
   }
 
   interface DropdownField {
     title: string;
     type: string;
-    options: boolean;
-    default: number;
+    options?: string[];
+    default?: number;
   }
 
   interface TimeField {
     title: string;
     type: string;
   }
+
+  interface MasterField
+    extends TextField,
+      NumberField,
+      BooleanField,
+      DropdownField,
+      Dropdown {}
 }
 
 export {};

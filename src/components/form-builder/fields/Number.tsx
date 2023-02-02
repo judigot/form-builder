@@ -1,13 +1,12 @@
-import React from "react";
+interface Props extends NumberField {}
 
-interface Props {}
-
-const Input = (props: Props) => {
+const Number = (props: Props) => {
   return (
-    <>
-      <input type="number" />
-    </>
+    <div>
+      <span>{props.title}</span>
+      <input type="number" min={props.min} max={props.max} />
+    </div>
   );
 };
 
-export default Input;
+export default Number;

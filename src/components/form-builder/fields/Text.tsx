@@ -1,13 +1,12 @@
-import React from "react";
+interface Props extends TextField {}
 
-interface Props {}
-
-const Input = (props: Props) => {
+const Text = (props: Props) => {
   return (
-    <>
-      <input type="text" />
-    </>
+    <div>
+      <span>{props.title}</span>
+      <input type="number" maxLength={props.maxLength} />
+    </div>
   );
 };
 
-export default Input;
+export default Text;

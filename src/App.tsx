@@ -5,34 +5,28 @@ import "./App.css";
 import FormBuilder from "./components/form-builder/FormBuilder";
 
 function App() {
-  const formFields: TextField[] = [
-    {
-      title: "First Name",
-      type: "text",
-    },
-  ];
-  const Test = [
-    { title: "First Name", type: "text", maxLength: null },
-    { title: "Last Name", type: "text", maxLength: null },
+  const form: MasterField[] = [
+    { title: "First Name", type: "text", maxLength: undefined },
+    { title: "Last Name", type: "text", maxLength: undefined },
     {
       title: "Age",
       type: "number",
-      minVal: "1",
-      maxVal: "100",
+      min: 1,
+      max: 10,
     },
-    { title: "Married", type: "boolean", default: "false" },
+    { title: "Married", type: "boolean", isChecked: true },
     {
       title: "Car Model",
       type: "dropdown",
-      values: { options: ["Mitsubishi", "Toyota", "Ferrari", "BMW"] },
-      default: "Mitsubishi",
+      options: ["Mitsubishi", "Toyota", "Ferrari", "BMW"],
+      default: 3,
     },
-    { title: "Attendance", type: "time", default: "false" },
   ];
+  const Test = [{ title: "Attendance", type: "time", default: "false" }];
 
   return (
     <div className="App">
-      <FormBuilder fields={formFields} />
+      <FormBuilder form={form} />
     </div>
   );
 }
