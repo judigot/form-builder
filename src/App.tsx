@@ -1,11 +1,22 @@
-import { useState } from "react";
+import React from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
+import FormBuilder from "./components/form-builder/FormBuilder";
 
-  return <div className="App"></div>;
+function App() {
+  const formFields: Field[] = [
+    {
+      title: "First Name",
+      type: "text",
+    },
+  ];
+
+  return (
+    <div className="App">
+      <FormBuilder fields={formFields} />
+    </div>
+  );
 }
 
 export default App;
